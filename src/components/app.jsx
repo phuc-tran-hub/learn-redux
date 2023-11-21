@@ -3,6 +3,8 @@ import {
   BrowserRouter, Routes, Route, useParams,
 } from 'react-router-dom';
 import Nav from './nav';
+import Counter from './counter';
+import Controls from './controls';
 
 import '../style.scss';
 
@@ -24,17 +26,24 @@ function FallBack(props) {
 
 function App(props) {
   return (
-    <BrowserRouter>
+    <div>
+      <Counter />
+      <Controls />
       <div>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/test/:id" element={<Test />} />
-          <Route path="*" element={<FallBack />} />
-        </Routes>
+        <BrowserRouter>
+          <div>
+            <Nav />
+            <Routes>
+              <Route path="/" element={<Welcome />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/test/:id" element={<Test />} />
+              <Route path="*" element={<FallBack />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
       </div>
-    </BrowserRouter>
+
+    </div>
   );
 }
 
